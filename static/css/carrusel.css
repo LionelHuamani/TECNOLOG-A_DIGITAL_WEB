@@ -1,0 +1,14 @@
+.carousel-container {
+    overflow: hidden;
+    width: 100%;
+    max-width: 1800px;
+    margin: auto;
+}
+.carousel-inner {
+    display: flex;
+    
+}
+.carousel-item {
+    min-width: 100%;
+    box-sizing: border-box;
+}
