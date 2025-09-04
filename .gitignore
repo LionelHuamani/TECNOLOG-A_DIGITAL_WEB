@@ -1,1 +1,10 @@
-node_modules
+<<<<<<< HEAD
+node_modules/
+css2/
+css/main.css
+css/tailwind.css
+templates/base.html
+tailwind.config.js
+=======
+node_modules/
+>>>>>>> 154d9c7 (Primer commit)
