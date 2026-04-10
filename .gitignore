@@ -1,5 +1,4 @@
-// filepath: c:\Users\Juana\Desktop\prototipo web\.gitignore
-node_modules/
+node_modules
 css2/
 css/main.css
 css/tailwind.css
