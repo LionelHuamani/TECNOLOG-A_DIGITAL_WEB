@@ -1,25 +1,47 @@
-const carousel = document.querySelector('.carousel-track');
-const dots = document.querySelectorAll('.carousel-indicator');
+document.addEventListener("DOMContentLoaded", () => {
 
-const totalSlides = dots.length;
-let currentIndex = 0;
+  const track = document.querySelector(".carousel-track");
+  const slides = document.querySelectorAll(".carousel-track img");
+  const nextBtn = document.getElementById("nextBtn");
+  const prevBtn = document.getElementById("prevBtn");
+  const dots = document.querySelectorAll(".dot");
 
-function updateCarousel() {
-    carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+  let index = 0;
+  const total = slides.length;
+
+  function updateCarousel() {
+    track.style.transform = `translateX(-${index * 100}%)`;
+
     dots.forEach((dot, i) => {
-        dot.classList.toggle('active', i === currentIndex);
+      dot.classList.toggle("bg-white", i === index);
+      dot.classList.toggle("bg-white/50", i !== index);
     });
-}
+  }
 
-function nextSlide() {
-    currentIndex = (currentIndex + 1) % totalSlides;
+  function nextSlide() {
+    index = (index + 1) % total;
     updateCarousel();
-}
+  }
 
-function goToSlide(index) {
-    currentIndex = index;
+  function prevSlide() {
+    index = (index - 1 + total) % total;
     updateCarousel();
-}
+  }
 
-updateCarousel();
-setInterval(nextSlide,3000); // Cambia de imagen cada 3 segundos
+  // Botones
+  nextBtn.addEventListener("click", nextSlide);
+  prevBtn.addEventListener("click", prevSlide);
+
+  // Dots
+  dots.forEach((dot, i) => {
+    dot.addEventListener("click", () => {
+      index = i;
+      updateCarousel();
+    });
+  });
+
+  // Auto play
+  setInterval(nextSlide, 3000);
+
+  updateCarousel();
+});
