@@ -607,3 +607,199 @@
   .carousel-img { height: 240px; }
   .section-title { font-size: 1.5rem; }
 }
+
+
+/* ============================================================
+   SECCIÓN ANIMACIONES TAILWIND
+   ============================================================ */
+.anim-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+}
+
+.anim-title {
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--text-main);
+  letter-spacing: -0.03em;
+  margin-bottom: 2rem;
+}
+
+/* Grid de 4 tarjetas */
+.anim-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+/* Tarjeta individual */
+.anim-card {
+  background: var(--white);
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-xl);
+  padding: 1.5rem 1.25rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.anim-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Preview del elemento animado */
+.anim-preview {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Info */
+.anim-info {
+  text-align: center;
+}
+.anim-code {
+  display: inline-block;
+  background: #f1f5f9;
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  border-radius: 0.4rem;
+  margin-bottom: 0.5rem;
+  font-family: ui-monospace, monospace;
+}
+.anim-desc {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+/* Botones */
+.anim-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1rem;
+  border: none;
+  border-radius: 0.6rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: filter var(--transition), transform var(--transition);
+  color: var(--white);
+  font-family: ui-monospace, monospace;
+  letter-spacing: 0.02em;
+}
+.anim-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+.anim-btn:hover { filter: brightness(1.1); transform: translateY(-1px); }
+.anim-btn:active { transform: translateY(0); }
+
+.anim-btn-blue   { background: #0ea5e9; }
+.anim-btn-green  { background: #10b981; }
+.anim-btn-purple { background: #8b5cf6; }
+.anim-btn-orange { background: #f97316; }
+
+/* Demo interactiva */
+.anim-demo {
+  background: var(--white);
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+}
+.anim-demo-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+.anim-demo-box {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+.anim-demo-current {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-family: ui-monospace, monospace;
+}
+
+@media (max-width: 560px) {
+  .anim-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 380px) {
+  .anim-grid { grid-template-columns: 1fr; }
+}
+
+
+/* ============================================================
+   CLASES TAILWIND — Animaciones y utilidades para botones
+   (necesarias porque output.css es un build estático)
+   ============================================================ */
+
+/* Colores de fondo */
+.bg-emerald-500 { background-color: #10b981; }
+.bg-violet-500  { background-color: #8b5cf6; }
+.bg-orange-500  { background-color: #f97316; }
+
+/* Utilidades de layout */
+.flex-wrap      { flex-wrap: wrap; }
+.gap-4          { gap: 1rem; }
+.py-10          { padding-block: 2.5rem; }
+.justify-center { justify-content: center; }
+
+/* Tipografía y forma */
+.font-bold      { font-weight: 700; }
+.px-6           { padding-inline: 1.5rem; }
+.py-3           { padding-block: 0.75rem; }
+.rounded-xl     { border-radius: 0.75rem; }
+.shadow-md      { box-shadow: 0 4px 6px -1px rgba(0,0,0,.1), 0 2px 4px -2px rgba(0,0,0,.1); }
+
+/* ---- animate-bounce ---- */
+@keyframes bounce {
+  0%, 100% { transform: translateY(-20%); animation-timing-function: cubic-bezier(0.8,0,1,1); }
+  50%       { transform: translateY(0);   animation-timing-function: cubic-bezier(0,0,0.2,1); }
+}
+.animate-bounce {
+  animation: bounce 1s infinite;
+}
+
+/* ---- animate-pulse ---- */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: .5; }
+}
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4,0,0.6,1) infinite;
+}
+
+/* ---- animate-ping ---- */
+@keyframes ping {
+  75%, 100% { transform: scale(2); opacity: 0; }
+}
+.animate-ping {
+  animation: ping 1s cubic-bezier(0,0,0.2,1) infinite;
+}
+
+/* ---- animate-spin ---- */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
