@@ -1,0 +1,6 @@
+node_modules
+css2/
+css/main.css
+css/tailwind.css
+templates/base.html
+tailwind.config.js
